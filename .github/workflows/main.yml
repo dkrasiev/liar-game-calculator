@@ -1,4 +1,4 @@
-name: "Deploy master to Github Pages"
+name: 'Deploy master to Github Pages'
 on:
   push:
     branches:
@@ -17,8 +17,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 20
+      - name: Install pnpm
+        run: npm install -G pnpm
       - name: Install dependencies
-        run: npm ci
+        run: pnpm ci
       - name: Lint
         run: npm run lint
       - name: Build
